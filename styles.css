@@ -1,0 +1,416 @@
+:root{
+  --midnight:#0A1E23;
+  --indigo:#123A42;
+  --gold:#5FC3C4;
+  --gold-soft:#BFE6E3;
+  --parchment:#EAF6F4;
+  --sage:#6FA3A0;
+  --ink:#14211F;
+  --line: rgba(234,246,244,0.14);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Work Sans', sans-serif;
+  background:var(--midnight);
+  color:var(--parchment);
+  line-height:1.55;
+  overflow-x:hidden;
+}
+h1,h2,h3{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  margin:0 0 0.5em 0;
+  letter-spacing:-0.01em;
+}
+p{margin:0 0 1em 0;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ---- Always-visible help bar ---- */
+.helpbar{
+  position:sticky; top:0; z-index:100;
+  background:var(--gold);
+  color:var(--midnight);
+  padding:10px 24px;
+  display:flex; align-items:center; justify-content:center;
+  gap:10px 28px;
+  flex-wrap:wrap;
+  font-size:14.5px;
+  font-weight:600;
+}
+.helpbar span.label{opacity:0.75; font-weight:500;}
+.helpbar a{
+  text-decoration:none;
+  border-bottom:2px solid var(--midnight);
+  padding-bottom:1px;
+}
+.helpbar a:hover{opacity:0.7;}
+
+/* ---- Page nav ---- */
+.sitenav{
+  position:sticky; top:41px; z-index:99;
+  background:var(--midnight);
+  border-bottom:1px solid var(--line);
+}
+.sitenav .nav-inner{
+  max-width:1080px;
+  margin:0 auto;
+  padding:16px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.sitenav .brand{
+  font-family:'Fraunces', serif;
+  font-size:16px;
+  font-weight:600;
+  color:var(--parchment);
+  text-decoration:none;
+}
+.sitenav .links{
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  font-size:14.5px;
+}
+.sitenav .links a{
+  text-decoration:none;
+  color:rgba(234,246,244,0.7);
+  padding-bottom:4px;
+  border-bottom:2px solid transparent;
+}
+.sitenav .links a:hover{color:var(--parchment);}
+.sitenav .links a[aria-current="page"]{
+  color:var(--parchment);
+  border-bottom-color:var(--gold);
+}
+@media (max-width:640px){
+  .sitenav .nav-inner{padding:14px 22px;}
+  .sitenav .links{gap:18px;}
+}
+
+/* ---- Long gradient wrapper: deep water rising to a calm, lit surface ---- */
+.gradient-wrap{
+  background: linear-gradient(
+    to bottom,
+    var(--midnight) 0%,
+    var(--midnight) 8%,
+    var(--indigo) 30%,
+    #1B4A4E 52%,
+    #2D6E6C 68%,
+    #5FAFA8 82%,
+    var(--gold) 94%,
+    var(--gold-soft) 100%
+  );
+}
+.gradient-wrap.short{
+  background: linear-gradient(
+    to bottom,
+    var(--midnight) 0%,
+    var(--indigo) 40%,
+    #2D6E6C 75%,
+    var(--gold-soft) 100%
+  );
+}
+
+section{
+  max-width:1080px;
+  margin:0 auto;
+  padding:96px 32px;
+}
+@media (max-width:720px){
+  section{padding:64px 22px;}
+}
+
+/* ---- Hero ---- */
+.hero{
+  padding-top:80px;
+  padding-bottom:120px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 3fr 2fr;
+  gap:40px;
+  align-items:center;
+}
+@media (max-width:800px){
+  .hero-grid{grid-template-columns:1fr; gap:8px;}
+  .hero-visual{order:-1; max-width:220px; margin:0 0 12px 0;}
+}
+.hero-visual{
+  width:100%;
+  max-width:340px;
+  justify-self:end;
+}
+.hero-visual svg{width:100%; height:auto;}
+.page-icon{
+  width:44px;
+  height:44px;
+  margin-bottom:18px;
+  color:var(--sage);
+}
+.dark-text .page-icon{ color:#2C5450; }
+.page-icon svg{width:100%; height:100%; display:block;}
+
+.hero .eyebrow{
+  color:var(--sage);
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:22px;
+}
+.hero h1{
+  font-size:clamp(2.2rem, 5.6vw, 4rem);
+  max-width:16ch;
+  line-height:1.06;
+  color:var(--parchment);
+}
+.hero .sub{
+  max-width:46ch;
+  font-size:19px;
+  color:rgba(234,246,244,0.8);
+  margin-top:20px;
+}
+.hero .cta-row{
+  display:flex; gap:16px; flex-wrap:wrap;
+  margin-top:38px;
+}
+.btn{
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:2px;
+  font-weight:600;
+  font-size:15px;
+  text-decoration:none;
+  border:1px solid var(--line);
+}
+.btn.primary{
+  background:var(--gold);
+  color:var(--midnight);
+  border-color:var(--gold);
+}
+.btn.secondary{
+  color:var(--parchment);
+}
+.btn.primary:hover{background:var(--gold-soft);}
+.btn.secondary:hover{border-color:var(--parchment);}
+
+/* ---- Section headers ---- */
+.section-head{
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  gap:32px;
+  margin-bottom:56px;
+  align-items:end;
+}
+.section-head h2{
+  font-size:clamp(1.7rem, 3.4vw, 2.5rem);
+  grid-column:2;
+}
+.section-head .num{
+  font-family:'Fraunces', serif;
+  font-size:15px;
+  color:var(--sage);
+  align-self:start;
+}
+@media (max-width:720px){
+  .section-head{grid-template-columns:1fr;}
+  .section-head h2{grid-column:1;}
+}
+
+/* ---- Signs section: list with rules, not cards ---- */
+.signs-list{
+  border-top:1px solid var(--line);
+}
+.sign-row{
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  gap:32px;
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+}
+.sign-row h3{
+  font-size:19px;
+  color:var(--gold-soft);
+}
+.sign-row p{
+  color:rgba(234,246,244,0.82);
+  max-width:56ch;
+  margin:0;
+}
+@media (max-width:720px){
+  .sign-row{grid-template-columns:1fr; gap:8px;}
+}
+.sign-row .row-icon{
+  width:28px; height:28px;
+  margin-bottom:10px;
+  color:var(--gold-soft);
+}
+.dark-text .sign-row .row-icon{ color:#2C5450; }
+.sign-row .row-icon svg{width:100%; height:100%; display:block;}
+.sign-row .row-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.sign-row .row-head .row-icon{margin-bottom:0;}
+
+/* ---- Myths & Facts ---- */
+.fact-table{
+  border-top:1px solid var(--line);
+}
+.fact-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:32px;
+  padding:30px 0;
+  border-bottom:1px solid var(--line);
+}
+.fact-row .myth .tag, .fact-row .fact .tag{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+.fact-row .myth .tag{ color:var(--sage); }
+.fact-row .fact .tag{ color:var(--gold-soft); }
+.fact-row .myth p{
+  color:rgba(234,246,244,0.5);
+  margin:0;
+  text-decoration:line-through;
+  text-decoration-color:rgba(234,246,244,0.3);
+}
+.fact-row .fact p{
+  color:rgba(234,246,244,0.9);
+  margin:0;
+}
+@media (max-width:720px){
+  .fact-row{grid-template-columns:1fr; gap:10px;}
+}
+
+/* ---- Talking to someone section ---- */
+.talk-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:40px;
+}
+@media (max-width:720px){
+  .talk-grid{grid-template-columns:1fr;}
+}
+.talk-col h3{
+  font-size:18px;
+  margin-bottom:14px;
+  color:#16302E;
+}
+.talk-col ul{
+  margin:0; padding-left:20px;
+}
+.talk-col li{
+  margin-bottom:12px;
+  color:#20433F;
+}
+
+/* Sections in the lower (light) half of the gradient use dark ink text.
+   Give them an explicit light background so they stay readable regardless
+   of how tall the page is or where they land inside the gradient. */
+.dark-text{ background:var(--gold-soft); }
+.dark-text, .dark-text h2, .dark-text h3{ color:#0F2624; }
+.dark-text .section-head .num{ color:#2C5450; }
+.dark-text p{ color:#20433F; }
+.dark-text .eyebrow{ color:#2C5450; }
+.dark-text .sub{ color:#20433F; }
+.next-link{ background:var(--gold-soft); color:#0F2624; }
+
+/* ---- Resources ---- */
+.res-table{
+  border-top:1px solid rgba(15,38,36,0.2);
+}
+.res-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap:20px;
+  padding:22px 0;
+  border-bottom:1px solid rgba(15,38,36,0.2);
+  align-items:baseline;
+}
+.res-row .where{font-weight:600;}
+.res-row .contact{
+  font-family:'Fraunces', serif;
+  font-size:19px;
+}
+.res-row .desc{
+  font-size:15px;
+  color:#2E524D;
+}
+@media (max-width:720px){
+  .res-row{grid-template-columns:1fr;}
+}
+.res-note{
+  margin-top:28px;
+  font-size:14.5px;
+  color:#2E524D;
+  max-width:60ch;
+}
+
+/* ---- Page-to-page nav card (bottom of content, "next" link) ---- */
+.next-link{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:28px 32px;
+  max-width:1080px;
+  margin:0 auto;
+  border-top:1px solid rgba(15,38,36,0.2);
+}
+.next-link .to{
+  font-family:'Fraunces', serif;
+  font-size:20px;
+}
+.next-link a{
+  text-decoration:none;
+  font-weight:600;
+  border-bottom:2px solid #0F2624;
+  padding-bottom:2px;
+}
+
+/* ---- Footer ---- */
+footer{
+  background:var(--gold-soft);
+  color:#0F2624;
+  padding:40px 32px 40px;
+}
+footer .foot-inner{
+  max-width:1080px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+  font-size:14px;
+  border-top:1px solid rgba(15,38,36,0.2);
+  padding-top:24px;
+}
+
+/* ---- Reveal-on-scroll: one orchestrated pass, not per-card ---- */
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1; transform:none; transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--gold-soft);
+  outline-offset:3px;
+}
